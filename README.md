@@ -7,9 +7,13 @@ Setup -
 Make a text file called reddit.txt 
 
 url=https://old.reddit.com/r/buildapcsales/
+
 minimumUpvotes=40
+
 keywords=[cpu],[ram],[case]
+
 budgetAmount=500
+
 orAnd=or
 
 Copy and paste the above, you can modify any of the variables. 
