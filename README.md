@@ -32,5 +32,7 @@ The first digit in the parameter means how many minutes to wait for before start
 
 The second digit in the parameter means the duration between each scrape, 5 minutes between each scrape in the example above.
 
+For more information, please check the java docs [TimeUnit docs](https://docs.oracle.com/javase/7/docs/api/java/util/concurrent/TimeUnit.html) [ExecutorService](https://docs.oracle.com/javase/8/docs/api/java/util/concurrent/ExecutorService.html)
+
 **After configuration** 
 After you finish defining all the parameters above, just run the program and paste the directory with the txt file name (ie. D:\reddit.txt). 
