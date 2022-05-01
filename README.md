@@ -1,31 +1,36 @@
 # RedditWebScraper
 
-I made this program mainly for this subreddit https://old.reddit.com/r/buildapcsales/ , but it can be easily modified for any other subreddit. (This program does work for any subreddit, but the features
-are optimized for this one). The webscraper will return any thread link that contains all the parameters you described below, saving time since you don't have to manually check the subreddit every few hours.
+I made this program mainly for this subreddit https://old.reddit.com/r/buildapcsales/ , but it can be easily modified for any other subreddit. The webscraper will return any thread link that contains all the parameters you described below, saving time since you don't have to manually check the subreddit every hour/day.
 
-Setup -
-Make a text file called reddit.txt 
+**Setup**
 
-url=https://old.reddit.com/r/buildapcsales/
+`url` = determines which subreddit you want the webscraper to scrape information from. (Note you have to use the old version of reddit, just replace www with old)
 
-minimumUpvotes=40
+`minimumUpvotes` = It will only scrape the threads that have an upvote value higher than this amount.
 
-keywords=[cpu],[ram],[case]
+`keywords` = It will scrape any thread title that contain any of these words.
 
-budgetAmount=500
+`budgetAmount` = It will scrape any thread title that contains a lower value than this amount. (This value does not get subtracted. For example if you had this value set to 200. If it scraped a $200 graphics card, the budgetAmount will still be $200 and keep scraping items that are below this amount)
 
-orAnd=or
+`orAnd` = or means if any of the variables above is true then it will scrape the thread. And means all the parameters above have to be true for it to scrape the thread.
 
-Copy and paste the above, you can modify any of the variables. 
-url = which subreddit you want the webscraper to scrape information from.
-minimumUpvotes = It will only scrape the threads that have an upvote value higher than this amount.
-keywords = It will scrape any thread title that contain any of these words.
-budgetAmount = It will scrape any thread title that contains a lower value than this amount. 
+**How to change duration between each scrape**
 
-IE. If thread title is "GPU $499" (it will scrape this because it's below budgetAmount) 
-If thread title is "CPU $600" (it won't scrape this because budgetAmount is $500)
+The webscraper will check every 5 minutes, you can change this by going into the `Main.java`file and look for 
 
-orAnd = or means if any of the variables above is true then scrape that thread. and means ALL THE VARIABLES ABOVE have to be true for it to scrape the thread.
+`scheduler.scheduleAtFixedRate(runnable,0,5,TimeUnit.MINUTES);` line 26.
 
-After you finish with all the parameters above, just compile/run the program and paste the directory where the .txt file is located. The webscraper will check every 5 minutes, you can change this by
-going into the Main.java file and look for scheduler.scheduleAtFixedRate(runnable,0,5,TimeUnit.MINUTES); at line 26.
+Days - `TimeUnit.DAYS`
+
+Hours - `TimeUnit.HOURS`
+
+Minutes - `TimeUnit.MINUTES`
+
+Seconds - `TimeUnit.SECONDS`
+
+The first digit in the parameter means how many minutes to wait for before starting the first search. (0 in the example above)
+
+The second digit in the parameter means the duration between each scrape, 5 minutes between each scrape in the example above.
+
+**After configuration** 
+After you finish defining all the parameters above, just run the program and paste the directory with the txt file name (ie. D:\reddit.txt). 
