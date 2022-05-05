@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.io.IOException;
 
 public class Config {
     private String url;
@@ -20,13 +21,13 @@ public class Config {
             String s;
 
             while((s = br.readLine()) != null) {
-                if(s.toLowerCase().startsWith("url")) {
+                if(s.startsWith("url")) {
                     String[] temp = s.split("url=");
                     this.url = temp[1].trim();
                 } else if(s.startsWith("minimumUpvotes")) {
                     String[] temp = s.split("minimumUpvotes=");
                     this.upvotes = temp[1].trim();
-                } else if(s.startsWith("keywords")) {
+                } else if(s.toLowerCase().startsWith("keywords")) {
                     String[] temp = s.split("keywords=");
                     this.keywords = temp[1].trim();
                 } else if(s.startsWith("budgetAmount")) {
@@ -37,7 +38,8 @@ public class Config {
                     this.orAnd = temp[1].trim();
                 }
             }
-        } catch(Exception e) {
+            br.close();
+        } catch(IOException e) {
             e.printStackTrace();
         }
     }
