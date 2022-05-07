@@ -1,4 +1,4 @@
-#Reddit PC Deals Web Scraper
+# Reddit PC Deals Web Scraper
 
 [Youtube Demo](https://www.youtube.com/watch?v=JE1W9P0Njdo)
 
