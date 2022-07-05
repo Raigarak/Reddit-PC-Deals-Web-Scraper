@@ -10,13 +10,13 @@ public class Main {
         DateAndTime dateAndTime = new DateAndTime();
         Config config = new Config(getTextFileDirectory());
         RedditScraper redditScraper = new RedditScraper(config);
-        HashSet alreadyPrinted = new HashSet();
+        HashSet<String> alreadyPrinted = new HashSet();
 
         final ScheduledExecutorService scheduler =
                 Executors.newScheduledThreadPool(2);
         Runnable runnable = () -> {
             // Runs web scrapper to gather new data (if any)
-            redditScraper.rerRunWebScrapper();
+            redditScraper.reRunWebScrapper();
 
             for(String s: redditScraper.getResultsList()) {
                 if(!alreadyPrinted.contains(s))

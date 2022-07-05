@@ -26,7 +26,7 @@ public class RedditScraper {
         addToResultListIfValidThreads();
     }
 
-    public void rerRunWebScrapper() {
+    public void reRunWebScrapper() {
         extractData();
         addToResultListIfValidThreads();
     }
