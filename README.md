@@ -1,4 +1,6 @@
-# RedditWebScraper
+# Reddit PC Deals Web Scraper
+
+[Youtube Demo](https://www.youtube.com/watch?v=JE1W9P0Njdo)
 
 I made this program mainly for this subreddit https://old.reddit.com/r/buildapcsales/ , but it can be easily modified for any other subreddit. The webscraper will return any thread link that contains all the parameters you described below, saving time since you don't have to manually check the subreddit every hour/day.
 
